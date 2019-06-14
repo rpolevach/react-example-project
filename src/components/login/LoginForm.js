@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import jwt from 'jsonwebtoken';
+import { BrowserRouter as Redirect } from 'react-router-dom';
+
 
 import TextField from '../shared/TextField';
 import validation from '../shared/validation';
@@ -8,7 +10,8 @@ class LoginForm extends Component {
     state = {
         id: "",
         password: "",
-        isLoading: false
+        isLoading: false,
+        isAuthenticated: false
     }
 
     validation = () => {
@@ -34,7 +37,6 @@ class LoginForm extends Component {
                 "secretWord"
             );
             localStorage.setItem("user", token);
-            console.log(token);
         }
     }
 
