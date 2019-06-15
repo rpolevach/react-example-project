@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import Navbar from './Navbar';
-import Dashboard from './Dashboard';
+import Dashboard from './dashboard/Dashboard';
 import LoginPage from './login/LoginPage';
 import SettingsPage from './settings/SettingsPage';
 
