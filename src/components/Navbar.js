@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { persistor } from '../store';
+
 class Navbar extends Component {
     Logout = () => {
         localStorage.removeItem('user');
+    }
+
+    onDelete = e => {
+        e.preventDefault();
+        persistor.purge();
+        window.location.reload();
     }
 
     render() {
@@ -14,6 +22,7 @@ class Navbar extends Component {
                     <span key={id}>{name}</span>
                 ))}
                 <form className="form-inline">
+                    <button onClick={this.onDelete}>Delete users</button>
                     <a onClick={this.Logout} href="/">Logout</a>
                 </form>
             </nav>
