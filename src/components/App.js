@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Navbar from './Navbar';
 import Dashboard from './Dashboard';
 import LoginPage from './login/LoginPage';
+import SettingsPage from './settings/SettingsPage';
 
 const checkAuth = () => {
   const token = localStorage.getItem('user');
@@ -44,6 +45,7 @@ function App() {
         <Navbar />
         <AuthRoute exact path="/" component={Dashboard} />
         <IsAuthRoute exact path="/login" component={LoginPage} />
+        <Route exact path="/settings" component={SettingsPage} />
       </div>
     </Router>
   );
