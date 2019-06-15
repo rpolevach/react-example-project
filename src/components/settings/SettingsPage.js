@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 
 import SettingsForm from './SettingsForm';
 import { addUser } from '../../actions/userActions';
@@ -17,4 +18,7 @@ class SettingsPage extends Component {
     }
 }
 
-export default SettingsPage;
+export default connect(
+    null,
+    { addUser }
+)(SettingsPage);

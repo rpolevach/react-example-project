@@ -12,8 +12,8 @@ export default (data) => {
         errors.usersurname = "This field is required";
     }
 
-    if (Validator.isEmpty(data.decsription)) {
-        errors.decsription = "This field is required"
+    if (Validator.isEmpty(data.description)) {
+        errors.description = "This field is required"
     }
 
     return {

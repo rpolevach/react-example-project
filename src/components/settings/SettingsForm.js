@@ -27,13 +27,11 @@ class SettingsForm extends Component {
         e.preventDefault();
         const { username, usersurname, description } = this.state;
 
+        console.log(username, usersurname, description);
+
         if (this.isValid()) {
             this.setState({ errors: {} });  
-            this.props.addUser({
-                username,
-                usersurname,
-                description
-            })
+            this.props.addUser(this.state)
         }
     }
 
