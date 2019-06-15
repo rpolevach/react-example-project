@@ -45,7 +45,7 @@ function App() {
         <Navbar />
         <AuthRoute exact path="/" component={Dashboard} />
         <IsAuthRoute exact path="/login" component={LoginPage} />
-        <Route exact path="/settings" component={SettingsPage} />
+        <AuthRoute exact path="/settings" component={SettingsPage} />
       </div>
     </Router>
   );

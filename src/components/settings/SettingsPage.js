@@ -1,15 +1,24 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 
 import SettingsForm from './SettingsForm';
+import { addUser } from '../../actions/userActions';
 
 class SettingsPage extends Component {
     render() {
+        const { addUser } = this.props;
+        
         return (
             <div>
-                <SettingsForm />
+                <SettingsForm
+                    addUser={addUser} 
+                />
             </div>
         )
     }
 }
 
-export default SettingsPage;
+export default connect(
+    null,
+    { addUser }
+)(SettingsPage);
