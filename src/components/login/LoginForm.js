@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import jwt from 'jsonwebtoken';
-import { BrowserRouter as Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 
 import TextField from '../shared/TextField';
@@ -11,7 +11,8 @@ class LoginForm extends Component {
         id: "",
         password: "",
         isLoading: false,
-        isAuthenticated: false
+        isAuthenticated: false,
+        redirect: false
     }
 
     validation = () => {
@@ -37,11 +38,14 @@ class LoginForm extends Component {
                 "secretWord"
             );
             localStorage.setItem("user", token);
+            this.setState({ redirect: true });
         }
     }
 
     render() {
         const { id, password, isLoading } = this.state;
+
+        if (this.state.redirect) return <Redirect to="/" />
 
         return (
             <form onSubmit={this.onSubmit}>
