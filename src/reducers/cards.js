@@ -6,7 +6,7 @@ let initialState = [
     {
         id: shortid.generate(),
         name: "Github",
-        data: '{avatar_url,followers,id,login,name,type,...}'
+        data: '{avatar_url, followers, id, login, name, type...}'
     }
 ];
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import Card from './components/Card';
 import { DashboardWrapper } from './styled/Dashboard';
@@ -24,7 +25,9 @@ class Dashboard extends Component {
         });
     }
 
-    onClick = id => {
+    onGetCardData = id => {
+        this.setState({ cardData: {} });
+
         let cardData = {};
         this.props.chooseCard(id, cardData);
         console.log(cardData);
@@ -37,10 +40,11 @@ class Dashboard extends Component {
     }
 
     render() {
-        let cardPage;
-
         if (this.state.cardData.name === "Github") {
-            cardPage = <CardPage />;
+            return <Redirect to={{
+                pathname: `/${this.state.cardData.id}`,
+                state: { cardData: this.state.cardData }
+            }} />
         }
 
         return (
@@ -50,11 +54,10 @@ class Dashboard extends Component {
                         key={value.id}
                         title={value.name} 
                         data={value.data}
-                        onClick={this.onClick} 
+                        onGetCardData={this.onGetCardData} 
                         id={value.id}
                     />
                 )}
-                {cardPage}
             </DashboardWrapper>
         )
     }
