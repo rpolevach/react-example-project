@@ -2,10 +2,14 @@ import React from 'react';
 
 import { CardBodyWrapper } from '../styled/Card'; 
 
-const CardBody = () => {
+const CardBody = ({ data }) => {
+    const check = () => {
+        console.log(Array.isArray(data));
+    }
+
     return (
         <CardBodyWrapper>
-            <span>В Новосибирске мужчина в маске решил ограбить офис микрозаймов.</span>
+            <span>{data}</span>
         </CardBodyWrapper>
     )
 }

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const CardWrapper = styled.div`
-    border: 2px solid black;
+    border: 1px solid #7bc7ed;
+    border-radius: 3px;
     display: inline-block;
     margin-top: 50px;
     margin-left: 30px;
@@ -9,6 +10,7 @@ const CardWrapper = styled.div`
     height: 250px;
     background-color: white;
     position: relative;
+    color: #024db0;
 `;
 
 export const CardHeaderWrapper = styled.div`

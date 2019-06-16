@@ -9,13 +9,18 @@ import { Columns } from '../styled/Card';
 
 class Card extends Component {
     render() {
+        const { title, data } = this.props;
+
         return (
             <CardWrapper>
-                <CardHeader />
-                <CardBody />
+                <CardHeader
+                    title={title}
+                />
+                <CardBody
+                    data={data}
+                />
                 <Columns>
-                    <LeftPart />
-                    <RightPart />
+                    <button>Click</button>
                 </Columns>
             </CardWrapper>
         )

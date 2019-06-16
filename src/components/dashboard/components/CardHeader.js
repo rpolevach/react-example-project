@@ -2,10 +2,10 @@ import React from "react";
 
 import { CardHeaderWrapper } from '../styled/Card';
 
-const CardHeader = () => {
+const CardHeader = ({ title }) => {
     return (
         <CardHeaderWrapper>
-            <span>Title</span>
+            <span>{title}</span>
         </CardHeaderWrapper>
     )
 }

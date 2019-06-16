@@ -5,7 +5,7 @@ import { RightPartWrapper } from '../styled/Card';
 const RightPart = () => {
     return (
         <RightPartWrapper>
-            <span>Text</span>
+            <span></span>
         </RightPartWrapper>
     )
 }
