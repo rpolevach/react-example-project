@@ -4,25 +4,16 @@ import { Redirect } from 'react-router-dom';
 
 import Card from './components/Card';
 import { DashboardWrapper } from './styled/Dashboard';
-import { getGithubFollowers } from '../../actions/APIfunctions';
-import CardPage from './components/CardPage.js/CardPage';
+import { getGithubFollowers, getGithubRepos } from '../../actions/APIfunctions';
 import { chooseCard } from "../../actions/cardsActions";
 
 class Dashboard extends Component {
     state = {
-        githubFollowers: [],
-        cardData: {}
-    }
-
-    getGithubFollowers = () => {
-        let usersArray = [];
-
-        getGithubFollowers().then((data) => {
-            for (let i = 0; i < data.data.length; i++) {
-                usersArray[i] = data.data[i].login;
-            }
-            this.setState({ githubFollowers: usersArray });
-        });
+        cardData: {},
+        github: {
+            repos: [],
+            followers: []
+        }
     }
 
     onGetCardData = id => {
@@ -36,14 +27,22 @@ class Dashboard extends Component {
 
     // eslint-disable-next-line getter-return
     componentDidMount() {
-        this.getGithubFollowers();
+        this.setState({ github: {
+            followers: getGithubFollowers(),
+            repos: getGithubRepos()
+        }})
     }
 
     render() {
         if (this.state.cardData.name === "Github") {
+            const github = this.state.github;
+
             return <Redirect to={{
                 pathname: `/${this.state.cardData.id}`,
-                state: { cardData: this.state.cardData }
+                state: { 
+                    cardData: this.state.cardData,
+                    data: github
+                }
             }} />
         }
 
