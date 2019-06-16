@@ -9,7 +9,7 @@ import { Columns } from '../styled/Card';
 
 class Card extends Component {
     render() {
-        const { title, data } = this.props;
+        const { title, data, onClick, id } = this.props;
 
         return (
             <CardWrapper>
@@ -20,7 +20,7 @@ class Card extends Component {
                     data={data}
                 />
                 <Columns>
-                    <button>Click</button>
+                    <button onClick={() => onClick(id)}>Click</button>
                 </Columns>
             </CardWrapper>
         )
