@@ -9,13 +9,14 @@ const TextField = ({
     type
 }) => {
     return (
-        <div>
+        <div className="form-group">
             <label className="control-label">{label}</label>
             <input 
                 onChange={onChange}
                 name={name}
                 value={value}
                 type={type}
+                class="form-control"
             />
             <div className="invalid-feedback">{error}</div>
         </div>

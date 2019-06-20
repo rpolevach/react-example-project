@@ -14,7 +14,7 @@ export const getGithubFollowers = () => {
     )
 
     return followers;
-}
+};
 
 export const getGithubRepos = () => {
     let repos = [];
@@ -30,4 +30,33 @@ export const getGithubRepos = () => {
     )
 
     return repos;
+};
+
+export const getRickandMorty = () => {
+    let characters = [];
+
+    const req = axios.get('https://rickandmortyapi.com/api/character');
+
+    req.then(
+        value => {
+            value.data.results.forEach(element => {
+                characters.push(element);
+            });
+        }
+    );
+
+    return characters;
 }
+
+export const getBreakignBad = () => {
+    let quote = [];
+
+    axios.get("https://breaking-bad-quotes.herokuapp.com/v1/quotes").then(
+        value => {
+            console.log(value.data[0].quote);
+            quote.push(value.data[0].quote)
+        }
+    )
+
+    return quote;
+}   

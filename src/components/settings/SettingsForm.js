@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect, withRouter } from 'react-router-dom';
 
 import TextField from '../shared/TextField';
 import newUserValidation from '../shared/newUserValidations';
@@ -25,11 +26,11 @@ class SettingsForm extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { username, usersurname, description } = this.state;
 
         if (this.isValid()) {
             this.setState({ errors: {} });  
-            this.props.addUser(this.state)
+            this.props.addUser(this.state);
+            this.props.history.push('/');
         }
     }
 
@@ -53,8 +54,11 @@ class SettingsForm extends Component {
                     value={usersurname}
                     onChange={this.onChange}
                 />
-
-                <span>Enter the info about you</span>
+                
+                <div>
+                    <span>Enter the info about you</span>
+                </div>
+                
                 <textarea 
                     name="description" 
                     cols="40" 
@@ -72,4 +76,4 @@ class SettingsForm extends Component {
     }
 }
 
-export default SettingsForm;
+export default withRouter(SettingsForm);

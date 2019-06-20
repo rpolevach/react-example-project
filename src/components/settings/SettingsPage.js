@@ -9,7 +9,7 @@ class SettingsPage extends Component {
         const { addUser } = this.props;
         
         return (
-            <div>
+            <div className="col-md-4 offset-md-4">
                 <SettingsForm
                     addUser={addUser} 
                 />

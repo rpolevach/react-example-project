@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import CardHeader from './CardHeader';
 import CardBody from './CardBody';
-import LeftPart from './LeftPart';
-import RightPart from './RightPart';
 import CardWrapper from '../styled/Card';
 import { Columns } from '../styled/Card';
 
@@ -23,6 +21,12 @@ class Card extends Component {
                     <button onClick={() => onGetCardData(id)}>Click</button>
                 </Columns>
             </CardWrapper>
+            /* <div className="card">
+                <div className="card-body">
+                    <h5 className="card-title">{title}</h5>
+                    <p className="card-text">{data}</p>
+                </div>
+            </div> */
         )
     }
 }

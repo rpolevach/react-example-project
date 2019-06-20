@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
 import Navbar from './Navbar';
 import Dashboard from './dashboard/Dashboard';
@@ -44,10 +44,12 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-        <AuthRoute exact path="/" component={Dashboard} />
-        <IsAuthRoute exact path="/login" component={LoginPage} />
-        <AuthRoute exact path="/settings" component={SettingsPage} />
-        <AuthRoute exact path="/:id" component={CardPage} />
+        <Switch>
+          <AuthRoute exact path="/" component={Dashboard} />
+          <IsAuthRoute exact path="/login" component={LoginPage} />
+          <AuthRoute exact path="/settings" component={SettingsPage} />
+          <AuthRoute exact path="/:id" component={CardPage} />
+        </Switch>
       </div>
     </Router>
   );

@@ -11,4 +11,9 @@ export const AppWrapper = styled.div`
     background-color: #d2f4f7;
 `;
 
+export const CardPageWrapper = styled.div`
+    height: -webkit-fill-available;
+    text-align: center;
+`
+
 export default DashboardWrapper;

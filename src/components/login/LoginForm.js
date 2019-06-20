@@ -39,6 +39,7 @@ class LoginForm extends Component {
             );
             localStorage.setItem("user", token);
             this.setState({ redirect: true });
+            window.location.reload();
         }
     }
 
@@ -49,8 +50,8 @@ class LoginForm extends Component {
 
         return (
             <form onSubmit={this.onSubmit}>
-                <h1>Login</h1>
-
+                <div className="mx-auto"><h1>Login</h1></div>
+                
                 <TextField
                     label="Username"
                     name="id"
@@ -66,8 +67,8 @@ class LoginForm extends Component {
                     type="password"
                 />
 
-                <div className="form-group">
-                    <button className="btn btn-primary btn-lg" disabled={isLoading}>
+                <div className="form-group mx-auto">
+                    <button className="btn btn-primary" disabled={isLoading}>
                         Login
                     </button>
                 </div>

@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 
 import LoginForm from './LoginForm';
+import { LoginFormWrapper } from './styled/login';
 
 class LoginPage extends Component {
     render() {
         return (
-            <div className="row">
-                <div className="col-md-4 col-md-offset-4">
+            <LoginFormWrapper className="row">
+                <div className="col-md-2 offset-md-5">
                     <LoginForm />
                 </div>
-            </div>
+            </LoginFormWrapper>
         );
     }
 }

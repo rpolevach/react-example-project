@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import Card from './components/Card';
 import { DashboardWrapper } from './styled/Dashboard';
-import { getGithubFollowers, getGithubRepos } from '../../actions/APIfunctions';
+import { getGithubFollowers, getGithubRepos, getRickandMorty, getBreakignBad } from '../../actions/APIfunctions';
 import { chooseCard } from "../../actions/cardsActions";
 
 class Dashboard extends Component {
@@ -13,7 +13,9 @@ class Dashboard extends Component {
         github: {
             repos: [],
             followers: []
-        }
+        },
+        rickandmorty: {},
+        breakingBad: ""
     }
 
     onGetCardData = id => {
@@ -23,14 +25,19 @@ class Dashboard extends Component {
         this.props.chooseCard(id, cardData);
         console.log(cardData);
         this.setState({ cardData: cardData });
+        
     }
 
-    // eslint-disable-next-line getter-return
     componentDidMount() {
-        this.setState({ github: {
+        this.setState(
+        { 
+        github: {
             followers: getGithubFollowers(),
             repos: getGithubRepos()
-        }})
+        },
+        rickandmorty: getRickandMorty(),
+        breakingBad: getBreakignBad()
+        })
     }
 
     render() {
@@ -42,6 +49,26 @@ class Dashboard extends Component {
                 state: { 
                     cardData: this.state.cardData,
                     data: github
+                }
+            }} />
+        } else if (this.state.cardData.name === "Rick and Morty") {
+            const rickandmorty = this.state.rickandmorty;
+
+            return <Redirect to={{
+                pathname: `/${this.state.cardData.id}`,
+                state: { 
+                    cardData: this.state.cardData,
+                    data: rickandmorty
+                }
+            }} />
+        } else if (this.state.cardData.name === "Breaking Bad") {
+            const breakingBad = this.state.breakingBad;
+
+            return <Redirect to={{
+                pathname: `/${this.state.cardData.id}`,
+                state: { 
+                    cardData: this.state.cardData,
+                    data: breakingBad
                 }
             }} />
         }

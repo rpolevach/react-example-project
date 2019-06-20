@@ -7,6 +7,16 @@ let initialState = [
         id: shortid.generate(),
         name: "Github",
         data: '{avatar_url, followers, id, login, name, type...}'
+    },
+    {
+        id: shortid.generate(),
+        name: "Rick and Morty",
+        data: '{characters}'
+    },
+    {
+        id: shortid.generate(),
+        name: "Breaking Bad",
+        data: '{quote}'
     }
 ];
 
