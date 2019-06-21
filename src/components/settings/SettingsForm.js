@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Redirect, withRouter } from 'react-router-dom';
 
 import TextField from '../shared/TextField';
 import newUserValidation from '../shared/newUserValidations';
+import TextArea from '../shared/TextArea';
 
 class SettingsForm extends Component {
     state = {
@@ -25,16 +27,16 @@ class SettingsForm extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { username, usersurname, description } = this.state;
 
         if (this.isValid()) {
             this.setState({ errors: {} });  
-            this.props.addUser(this.state)
+            this.props.addUser(this.state);
+            this.props.history.push('/');
         }
     }
 
     render () {
-        const { username, usersurname } = this.state;
+        const { username, usersurname, errors } = this.state;
 
         return (
             <form onSubmit={this.onSubmit}>
@@ -45,6 +47,7 @@ class SettingsForm extends Component {
                     name="username"
                     value={username}
                     onChange={this.onChange}
+                    errors={errors.username}
                 />
 
                 <TextField
@@ -52,15 +55,23 @@ class SettingsForm extends Component {
                     name="usersurname"
                     value={usersurname}
                     onChange={this.onChange}
+                    errors={errors.usersurname}
                 />
-
-                <span>Enter the info about you</span>
-                <textarea 
+                
+                <div>
+                    <span>Enter the info about you</span>
+                </div>
+                
+                <TextArea 
                     name="description" 
                     cols="40" 
                     rows="5" 
-                    onChange={this.onChange} 
+                    onChange={this.onChange}
+                    errors={errors.description}
                 />
+
+                <div className="invalid-feedback">asdasd</div>
+
 
                 <div className="form-group">
                     <button className="btn btn-primary btn-lg">
@@ -72,4 +83,4 @@ class SettingsForm extends Component {
     }
 }
 
-export default SettingsForm;
+export default withRouter(SettingsForm);

@@ -2,22 +2,7 @@ import shortid from 'shortid';
 
 import { ADD_USER, CHOOSE_USER } from '../actions/constants';
 
-let initialState = [
-    {
-        id: shortid.generate(),
-        name: "Vasya",
-        surname: "Sidorov",
-        description: "Privet"
-    },
-    {
-        id: shortid.generate(),
-        name: "Maksim",
-        surname: "Petrov",
-        description: "Hi"
-    }
-]
-
-const users = (state = initialState, action) => {
+const users = (state = [], action) => {
     switch (action.type) {
         case ADD_USER:
             return [

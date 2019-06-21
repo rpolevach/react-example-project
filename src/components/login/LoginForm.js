@@ -12,7 +12,8 @@ class LoginForm extends Component {
         password: "",
         isLoading: false,
         isAuthenticated: false,
-        redirect: false
+        redirect: false,
+        errors: {}
     }
 
     validation = () => {
@@ -39,23 +40,25 @@ class LoginForm extends Component {
             );
             localStorage.setItem("user", token);
             this.setState({ redirect: true });
+            window.location.reload();
         }
     }
 
     render() {
-        const { id, password, isLoading } = this.state;
+        const { id, password, isLoading, errors } = this.state;
 
         if (this.state.redirect) return <Redirect to="/" />
 
         return (
             <form onSubmit={this.onSubmit}>
-                <h1>Login</h1>
-
+                <div className="mx-auto"><h1>Login</h1></div>
+                
                 <TextField
                     label="Username"
                     name="id"
                     value={id}
                     onChange={this.onChange}
+                    errors={errors.id}
                 />
 
                 <TextField
@@ -64,10 +67,11 @@ class LoginForm extends Component {
                     value={password}
                     onChange={this.onChange}
                     type="password"
+                    errors={errors.password}
                 />
 
-                <div className="form-group">
-                    <button className="btn btn-primary btn-lg" disabled={isLoading}>
+                <div className="form-group mx-auto">
+                    <button className="btn btn-primary" disabled={isLoading}>
                         Login
                     </button>
                 </div>
