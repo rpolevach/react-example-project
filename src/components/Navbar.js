@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 import { persistor } from '../store';
 import { chooseUser } from '../actions/userActions';
+import { shakeCards } from '../actions/cardsActions';
 
 class Navbar extends Component {
     state = {
@@ -29,6 +30,7 @@ class Navbar extends Component {
         this.setState({ userData: userData });
         const data = JSON.stringify(userData);
         localStorage.setItem('userData', data);
+        this.props.shakeCards();
         this.props.history.push('/');
     }
 
@@ -65,5 +67,5 @@ class Navbar extends Component {
 
 export default withRouter(connect(
     state => ({ users: state.users }),
-    { chooseUser }
+    { chooseUser, shakeCards }
 )(Navbar));

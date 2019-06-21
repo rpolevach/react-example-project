@@ -1,6 +1,10 @@
 import shortid from 'shortid';
 
-import { CHOOSE_CARD } from '../actions/constants';
+import { CHOOSE_CARD, SHAKE_CARDS } from '../actions/constants';
+
+const compareRandom = (a, b) => {
+    return Math.random() - 0.5;
+}
 
 let initialState = [
     {
@@ -27,6 +31,8 @@ const cards = (state = initialState, action) => {
             action.cardData.id = state[index].id;
             action.cardData.name = state[index].name;
             return state;
+        case SHAKE_CARDS:
+            return state.sort(compareRandom);
         default:
             return state;
     }

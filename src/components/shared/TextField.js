@@ -16,7 +16,7 @@ const TextField = ({
                 name={name}
                 value={value}
                 type={type}
-                class="form-control"
+                className="form-control"
             />
             <div className="invalid-feedback">{error}</div>
         </div>

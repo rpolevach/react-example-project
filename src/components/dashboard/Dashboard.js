@@ -75,7 +75,7 @@ class Dashboard extends Component {
 
         return (
             <DashboardWrapper>
-                {this.props.cards.map((value) =>
+                {this.props.cards.slice(0, 3).map((value) =>
                     <Card
                         key={value.id}
                         title={value.name} 
