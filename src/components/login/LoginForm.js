@@ -12,7 +12,8 @@ class LoginForm extends Component {
         password: "",
         isLoading: false,
         isAuthenticated: false,
-        redirect: false
+        redirect: false,
+        errors: {}
     }
 
     validation = () => {
@@ -44,7 +45,7 @@ class LoginForm extends Component {
     }
 
     render() {
-        const { id, password, isLoading } = this.state;
+        const { id, password, isLoading, errors } = this.state;
 
         if (this.state.redirect) return <Redirect to="/" />
 
@@ -57,6 +58,7 @@ class LoginForm extends Component {
                     name="id"
                     value={id}
                     onChange={this.onChange}
+                    errors={errors.id}
                 />
 
                 <TextField
@@ -65,6 +67,7 @@ class LoginForm extends Component {
                     value={password}
                     onChange={this.onChange}
                     type="password"
+                    errors={errors.password}
                 />
 
                 <div className="form-group mx-auto">

@@ -21,6 +21,11 @@ let initialState = [
         id: shortid.generate(),
         name: "Breaking Bad",
         data: '{quote}'
+    },
+    {
+        id: shortid.generate(),
+        name: "Chuck Norris",
+        data: "{joke]"
     }
 ];
 

@@ -23,12 +23,9 @@ export const CardHeaderWrapper = styled.div`
 export const CardBodyWrapper = styled.div`
     text-align: center;
     font-size: 13px;
-    padding-left: 30px;
-    padding-right: 30px;
 `;
 
 export const Columns = styled.div`
-    display: inline-flex;
     position: absolute;
     bottom: 5px;
     text-align: center;
@@ -43,6 +40,11 @@ export const LeftPartWrapper = styled.div`
 
 export const RightPartWrapper = styled.div`
     padding-left: 130px;
+`;
+
+export const ColumnButton = styled.button`
+    font-size: 13px;
+    background-color: #2DD687;
 `;
 
 export default CardWrapper;

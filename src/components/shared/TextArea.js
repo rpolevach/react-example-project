@@ -12,7 +12,7 @@ const TextField = ({
     return (
         <div className="form-group">
             <label className="control-label">{label}</label>
-            <input 
+            <textarea 
                 onChange={onChange}
                 name={name}
                 value={value}

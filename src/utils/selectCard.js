@@ -1,19 +1,20 @@
 import React from 'react';
 
-import { CardPageWrapper } from '../components/dashboard/styled/Dashboard';
+import { CardPageWrapper, GithubWrapper } from '../components/dashboard/styled/Dashboard';
 
 export default (cardData, data) => {
     if (cardData.name === "Github") {
         return (
-                <CardPageWrapper className="col-md-6 offset-md-5">
-                    <div className="row">
-                    <p><h5>Followers:</h5> {data.followers}</p>
-                    </div>
+                <GithubWrapper className="col-md-6 offset-md-3">
+                    <p><h5>Followers</h5></p>
+                    <ul>
+                        {data.followers.map(value => <li className="list-group-item" key={value.id}>{value}</li>)}
+                    </ul>
                     <p><h5>Repos:</h5></p>
-                    <ol>
-                        {data.repos.map(value => <li key={value.id}>{value.name}</li>)}
-                    </ol>
-                </CardPageWrapper>
+                    <ul>
+                        {data.repos.map(value => <li className="list-group-item" key={value.id}>{value.name}</li>)}
+                    </ul>
+                </GithubWrapper>
         )
     } else if (cardData.name === "Rick and Morty") {
         return (
@@ -47,7 +48,14 @@ export default (cardData, data) => {
     } else if (cardData.name === "Breaking Bad") {
         return (
             <CardPageWrapper className="col-md-6 offset-md-3">
-                <p>Random quote from series:</p>
+                <p><h5>Random quote from series:</h5></p>
+                <q>{data[0]}</q>
+            </CardPageWrapper>
+        )
+    } else if (cardData.name === "Chuck Norris") {
+        return (
+            <CardPageWrapper className="col-md-6 offset-md-3">
+                <p><h5>Random joke about Chuck Norris</h5></p>
                 <q>{data[0]}</q>
             </CardPageWrapper>
         )

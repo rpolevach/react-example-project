@@ -49,13 +49,17 @@ class Navbar extends Component {
             </div>
         )
 
+        const deleteButton = localStorage.getItem('userData') !== null && (
+            <button className="btn btn-danger" onClick={this.onDelete}>Delete users</button>
+        )
+
         return (
-            <nav className="navbar navbar-light bg-light">
+            <nav className="navbar navbar-dark bg-dark">
                 {userRender}
                 {users}
                 <form className="form-inline">
                     <div className="btn-group" role="group">
-                        <button className="btn btn-danger" onClick={this.onDelete}>Delete users</button>
+                        {deleteButton}
                         <Link className="btn btn-secondary" to="/settings">Settings</Link>
                         <a className="btn btn-primary" onClick={this.Logout} href="/">Logout</a>
                     </div>

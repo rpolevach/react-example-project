@@ -4,8 +4,8 @@ export const chooseCard = (id, cardData) => ({
     type: CHOOSE_CARD,
     id,
     cardData
-})
+});
 
 export const shakeCards = () => ({
     type: SHAKE_CARDS,
-})
+});

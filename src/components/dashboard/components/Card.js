@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import CardHeader from './CardHeader';
 import CardBody from './CardBody';
-import CardWrapper from '../styled/Card';
+import CardWrapper, { ColumnButton } from '../styled/Card';
 import { Columns } from '../styled/Card';
 
 class Card extends Component {
@@ -18,15 +18,9 @@ class Card extends Component {
                     data={data}
                 />
                 <Columns>
-                    <button onClick={() => onGetCardData(id)}>Click</button>
+                    <ColumnButton className="btn btn-success" onClick={() => onGetCardData(id)}>VIEW</ColumnButton>
                 </Columns>
             </CardWrapper>
-            /* <div className="card">
-                <div className="card-body">
-                    <h5 className="card-title">{title}</h5>
-                    <p className="card-text">{data}</p>
-                </div>
-            </div> */
         )
     }
 }

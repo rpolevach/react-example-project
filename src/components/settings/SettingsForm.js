@@ -3,6 +3,7 @@ import { Redirect, withRouter } from 'react-router-dom';
 
 import TextField from '../shared/TextField';
 import newUserValidation from '../shared/newUserValidations';
+import TextArea from '../shared/TextArea';
 
 class SettingsForm extends Component {
     state = {
@@ -35,7 +36,7 @@ class SettingsForm extends Component {
     }
 
     render () {
-        const { username, usersurname } = this.state;
+        const { username, usersurname, errors } = this.state;
 
         return (
             <form onSubmit={this.onSubmit}>
@@ -46,6 +47,7 @@ class SettingsForm extends Component {
                     name="username"
                     value={username}
                     onChange={this.onChange}
+                    errors={errors.username}
                 />
 
                 <TextField
@@ -53,18 +55,23 @@ class SettingsForm extends Component {
                     name="usersurname"
                     value={usersurname}
                     onChange={this.onChange}
+                    errors={errors.usersurname}
                 />
                 
                 <div>
                     <span>Enter the info about you</span>
                 </div>
                 
-                <textarea 
+                <TextArea 
                     name="description" 
                     cols="40" 
                     rows="5" 
-                    onChange={this.onChange} 
+                    onChange={this.onChange}
+                    errors={errors.description}
                 />
+
+                <div className="invalid-feedback">asdasd</div>
+
 
                 <div className="form-group">
                     <button className="btn btn-primary btn-lg">

@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import Card from './components/Card';
 import { DashboardWrapper } from './styled/Dashboard';
-import { getGithubFollowers, getGithubRepos, getRickandMorty, getBreakignBad } from '../../actions/APIfunctions';
+import { getGithubFollowers, getGithubRepos, getRickandMorty, getBreakignBad, getChuckNorris } from '../../actions/APIfunctions';
 import { chooseCard } from "../../actions/cardsActions";
 
 class Dashboard extends Component {
@@ -15,7 +15,8 @@ class Dashboard extends Component {
             followers: []
         },
         rickandmorty: {},
-        breakingBad: ""
+        breakingBad: "",
+        chuckNorris: ''
     }
 
     onGetCardData = id => {
@@ -36,7 +37,8 @@ class Dashboard extends Component {
             repos: getGithubRepos()
         },
         rickandmorty: getRickandMorty(),
-        breakingBad: getBreakignBad()
+        breakingBad: getBreakignBad(),
+        chuckNorris: getChuckNorris()
         })
     }
 
@@ -69,6 +71,16 @@ class Dashboard extends Component {
                 state: { 
                     cardData: this.state.cardData,
                     data: breakingBad
+                }
+            }} />
+        } else if (this.state.cardData.name === "Chuck Norris") {
+            const chuckNorris = this.state.chuckNorris;
+
+            return <Redirect to={{
+                pathname: `/${this.state.cardData.id}`,
+                state: { 
+                    cardData: this.state.cardData,
+                    data: chuckNorris
                 }
             }} />
         }

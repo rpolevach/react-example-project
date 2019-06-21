@@ -53,10 +53,19 @@ export const getBreakignBad = () => {
 
     axios.get("https://breaking-bad-quotes.herokuapp.com/v1/quotes").then(
         value => {
-            console.log(value.data[0].quote);
             quote.push(value.data[0].quote)
         }
     )
 
     return quote;
-}   
+}
+
+export const getChuckNorris = () => {
+    let joke = [];
+
+    axios.get('http://api.icndb.com/jokes/random').then(
+        value => joke.push(value.data.value.joke)
+    )
+
+    return joke;
+}

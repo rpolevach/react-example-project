@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import selectCard from '../../../../utils/selectCard';
+import { CardTitleWrapper } from '../../styled/Dashboard';
 
 class CardPage extends Component {
     render() {
@@ -10,11 +11,11 @@ class CardPage extends Component {
 
         return(
             <div>
-                <div className="row">
+                <CardTitleWrapper className="row">
                     <div className="col-md-2 offset-md-5">
                         <h1>{cardData.name}</h1>
                     </div>
-                </div>
+                </CardTitleWrapper>
                 
                 <div>
                     <div>{selector}</div>
